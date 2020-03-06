@@ -1,7 +1,7 @@
 window.onload = ()=> {
     var id;
 
-    if (!location.search) {
+    while (!location.search) {
         if (id = prompt("Enter bieg id")) {
             location.assign(location.href+'?'+id)
             return
