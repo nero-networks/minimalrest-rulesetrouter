@@ -19,7 +19,7 @@ window.onload = ()=> {
         Route = (root)=> {
             var ul = ele("ul", root), textarea = ele("textarea", root), status = ele("#status")
                 updateRules = textarea.onchange = ()=> fetch("/rules/"+id, {method: 'put', body: textarea.value}),
-                client = MessageBrokerClient({
+                client = minimalrest.MessageBrokerClient({
                     connected: ()=> client.send("SUBSCRIBE", "/" + id),
                     status: (txt)=> status.textContent = txt,
                     handle: (msg)=> {
